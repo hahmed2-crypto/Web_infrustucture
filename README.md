@@ -3,5 +3,5 @@
 A website that helps students, residents, and visitors in Rwanda to find local hospitals, pharmacies, and clinics near them
 
 -**Demo Video:** []
--**Live load balancer URL:** http://35.17997.207
+-**Live load balancer URL:** http://35.179.97.207
 
