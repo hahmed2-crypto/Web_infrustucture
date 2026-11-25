@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Rwanda HealthCare Locator</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-content">
+            <h1>Rwanda Healthcare Locator</h1>
+            <p class="subtitle">Locate Hospitals, clinics, and Pharmacies across Rwanda</p>
+
+        </div>
+        <div class="server-badge" title="Active Backend Server">
+            Served by: <strong id="server-name">{{ server_name}}</strong>
+
+        </div>
+        
+    </header>
+
+    <main class="container">
+        <section class="stats-section">
+            <h2 class="section-title">Rwanda National Health Indicator</h2>
+            <div id="health-stats-grid" class="stats-grid">
+                <div class="stat-card">Loading national health metrics</div>
+            </div>
+        </section>
+
+        <section class="controls-card">
+            <div class="filter-grid">
+                <div class="form-grid">
+                    <label for="preset-city">Quick Select Area</label>
+                    <select id="preset-city">
+                        {% for key, info in cities.items() %}
+                        <option value="{{ Key }}">{{ info.label }}</option>
+                        {% endfor %}
+                        <option value="custom">-- Type Any Town/ District --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="city-input"> Town Or District in Rwanda</label>
+                    <input type="text" id="city-input" value="kigali" placeholder="e.g. Kigali, Muhanga, Rusizi...">
+                </div>
+
+                <div class="form-group">
+                    <label for="type-select">facility Type</label>
+                    <select id="type-select">
+                        <option value="all">All Facilities</option>
+                        <option value="hospital">Hospitals</option>
+                        <option value="clinic">Clinics</option>
+                        <option value="pharmacy">Pharmacies</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <button id="search-btn"class="primary-btn">Search Facilities</button>
+                </div>
+
+            </div>
+
+
+
+            <div class="secondary-controls">
+                <input type="text" id="filter-input" placeholder="filter loaded results by facility name, district, or street...">
+                <select id="sort-select">
+                    <option value="distance">Sort by: Nearest First</option>
+                    <option value="name-asc">Sort by: Name (A-Z)</option>
+                    <option value="name-desc">Sort by: Name (Z-A)</option>
+                </select>
+            </div>
+        </section>
+
+        <div id="status-bar" class="status-bar"></div>
+        <div id="error-box" class="error-box hidden"></div>
+
+        <section id="facilities-grid" class="facilities-grid"></section>
+        
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>
+                Data powered by <a href="https://geoapify.com" target="_blank" rel="noopener">Geoapify Places & Geocoding API</a>
+                &amp; <a href="https://worldbank.org" target="_blank" rel="nooperner">World Bank Open Data API</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
