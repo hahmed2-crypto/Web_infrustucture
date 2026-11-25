@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 
         facilitiesGrid.innerHTML= filtered.map(item=>{
             const badgeClass= `badge-${item.type.toLowerCase()}`;
-            const mapUrl= `https://google.com{item.lat},${item.lon}`;
+            const mapUrl= `https://google.com/map/search/?api=1&query=${item.lat},${item.lon}`;
 
             return `
                 <article class="facility-card">
