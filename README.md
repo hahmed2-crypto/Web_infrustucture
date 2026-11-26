@@ -45,7 +45,7 @@ A data-driven web application that helps residents, students, and visitors in Rw
 4. **Configure environment variables:**
    Copy `env.example` to `.env` and add your Geoapify API key:
    ```env
-   GEOAPIFY_API_KEY=your_geoapify_api_key_here
+   GEOAPIFY_API_KEY=72ff48238ae14c829e20fa4408fd8397
    SERVER_NAME=Local-Server
    ```
 5. **Run the application locally:**
