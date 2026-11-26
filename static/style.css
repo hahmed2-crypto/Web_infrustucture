@@ -1,11 +1,13 @@
 :root {
-    --primary: #0f766e;
-    --primary-dark: #115e59;
-    --bg: #f1f5f9;
+    --primary: #0f2c59;
+    --primary-dark: #091d3e;
+    --bg: #ffffff;
+    --accent: #a61c2e;
     --card: #ffffff;
-    --text: #0f172a;
-    --muted: #64748b;
-    --border: #e2e8f0;
+    --text: #111827;
+    --surface: #f8fafc;
+    --muted: #52606d;
+    --border: #e5e7eb;
 }
 
 * {
@@ -32,10 +34,10 @@ body {
 }
 
 .navbar{
-    background: var(--primary);
-    color: #fff;
+    background: #ffffff;
+    color: var(--primary);
     padding: 1.25rem 0;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-bottom: 1px solid var(--border)
 }
 
 .navbar-content{
@@ -47,20 +49,22 @@ body {
 }
 
 .navbar h1{
-    font-size: 1.45rem;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.55rem;
+    letter-spacing: -0.01em;
+    color: var(--primary);
 }
 
 .subtitle{
-    font-size: 0.9rem;
-    opacity: 0.9;
+    color: var(--muted)
 }
 
 .server-badge{
-    background: rgba(255, 255, 255, 0.18);
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: #fdf2f4;
+    border: 1px solid #f5c2c7;
     padding: 0.4rem 0.9rem;
     border-radius: 999px;
-    font-size: 0.85rem;
+    font-weight: 600;
 }
 
 main {
@@ -84,16 +88,17 @@ main {
 }
 
 .stat-card{
-    background: var(--card);
+    background: var(--surface);
     border: 1px solid var(--border);
-    border-left: 4px solid var(--primary);
-    border-radius: 8px;
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
     padding: 0.9rem 1rem;
 
 }
 
 .stat-value{
-    font-size: 1.4rem;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.6rem;
     font-weight: 700;
     color: var(--primary);
 }
@@ -156,10 +161,12 @@ select:focus, input:focus{
     padding: 0.65rem 1.1rem;
     background: var(--primary);
     color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-size: 0.95rem;
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    font-size: 0.82rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     cursor: pointer;
     transition: background 0.2s;
 }
@@ -283,8 +290,11 @@ select:focus, input:focus{
 
 
 .map-link{
-    color: var(--primary);
+    color: var(--accent);
+    font-size: 0.78rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     text-decoration: none;
 }
 

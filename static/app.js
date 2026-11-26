@@ -57,6 +57,14 @@ document.addEventListener("DOMContentLoaded", () =>{
     }
 
 
+    //here is a little summary fuction, that will show the user counts of hospitals, clinics, and pharmacies in the current results
+    function buildCategorySummary(items){
+        const hospitals= items.filter(i => i.type === "Hospital").length;
+        const clinics= items.filter(i => i.type === "Clinics").length;
+        const pharmacies= items.filter(i =>i.type === "Pharmacy").length;
+        return `(${hospitals} Hospitals . ${clinics} Clinics . ${pharmacies} Pharmacies)`;
+    }
+
     //what the client can filter and sort for facilities
 
     function renderFacilities(){
@@ -76,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () =>{
             return a.distance_km - b.distance_km;
         });
 
-        statusBar.textContent= `Showing ${filtered.length} of ${currentFacilities.length} healthcare facilities near ${resolvedLocation}`;
+        statusBar.textContent= `Showing ${filtered.length} of ${currentFacilities.length} healthcare facilities near ${resolvedLocation} ${buildCategorySummary(filtered)}`;
 
         if(filtered.length===0){
             facilitiesGrid.innerHTML= `<p> No matching healthcare facilities found. Try a different keyword or town.</p>`;
