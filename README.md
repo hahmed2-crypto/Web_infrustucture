@@ -2,7 +2,7 @@
 
 A data-driven web application that helps residents, students, and visitors in Rwanda locate nearby hospitals, clinics, and pharmacies while viewing national public health indicators.
 
-- **Demo Video:** [Watch Demo Video on YouTube](YOUR_YOUTUBE_LINK_HERE)
+- **Demo Video:** [Watch Demo Video on YouTube](https://youtu.be/d9uq5ueRULI)
 - **Live Load Balancer URL:** http://35.179.97.207
 
 ---
@@ -45,7 +45,7 @@ A data-driven web application that helps residents, students, and visitors in Rw
 4. **Configure environment variables:**
    Copy `env.example` to `.env` and add your Geoapify API key:
    ```env
-   GEOAPIFY_API_KEY=72ff48238ae14c829e20fa4408fd8397
+   GEOAPIFY_API_KEY=
    SERVER_NAME=Local-Server
    ```
 5. **Run the application locally:**
