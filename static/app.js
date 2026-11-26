@@ -1,4 +1,10 @@
-document.addEventListener("DOMContentLoaded", () =>{
+//Here is my Healthcare Locator for hospitals, clinics, and pharmacies
+//in kigali for internationals who are either visiting or staying. 
+//I used Rest endpoints to setup for searching hospitals, clinics, and pharmacies
+// via the Geoapify API and it will fetch national health metrics
+//from the world bank Open Data API.
+
+document.addEventListener("DOMContentLoaded", () =>{ // in this fucntion, i will control the follow of the forntend; selecting, districts, filteing categories,etc.
     const presetCity= document.getElementById("preset-city");
     const cityInput= document.getElementById("city-input");
     const typeSelect= document.getElementById("type-select");
@@ -15,14 +21,14 @@ document.addEventListener("DOMContentLoaded", () =>{
     let currentFacilities= [];
     let resolvedLocation= "";
 
-    function escapeHTML(text){
+    function escapeHTML(text){ // in this function, i preventing XSS by escaping special html characters in external API.
         const div= document.createElement("div");
         div.textContent= text ?? "";
         return div.innerHTML;
     }
 
 
-    function showError(msg){
+    function showError(msg){ // for this function, i showing the user or it displays error alert and clears facility cards while it hides befoer starting new facility lookup
         errorBox.textContent = msg;
         errorBox.classList.remove("hidden");
         facilitiesGrid.innerHTML= "";
@@ -37,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 
     // Loading the WOrld bank health Stats.
 
-    async function loadHealthStats(){
+    async function loadHealthStats(){ //i will write a fucntion that fetches Geoapify api, and data from world bank so that it provides to the web application
         try{
             const res= await fetch("/api/health-stats");
             const data= await res.json();
@@ -65,6 +71,12 @@ document.addEventListener("DOMContentLoaded", () =>{
         return `(${hospitals} Hospitals . ${clinics} Clinics . ${pharmacies} Pharmacies)`;
     }
 
+    function resetFilters(){
+        filterInput.value= "";
+        sortSelect.value= "distance";
+        renderFacilities();
+    }
+
     //what the client can filter and sort for facilities
 
     function renderFacilities(){
@@ -72,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         const sortBy= sortSelect.value;
 
 
-        let filtered = currentFacilities.filter(item=>
+        let filtered = currentFacilities.filter(item=> // now, i need to sort for healthcare facilities to match either alphabetically or by distance
             item.name.toLowerCase().includes(keyword) ||
             item.address.toLowerCase().includes(keyword)||
             item.district.toLowerCase().includes(keyword)
@@ -185,6 +197,6 @@ document.addEventListener("DOMContentLoaded", () =>{
 
 
     //initial load
-    loadHealthStats();
+    loadHealthStats(); //finally, i will gonna load the national health indicators and set Kigali facilities as the page opens
     fetchFacilities();
 }); 

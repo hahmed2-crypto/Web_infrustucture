@@ -1,4 +1,4 @@
-:root {
+:root { /*in this below, i am presetting what sort of colors i want to use for easy*/
     --primary: #0f2c59;
     --primary-dark: #091d3e;
     --bg: #ffffff;
@@ -59,7 +59,7 @@ body {
     color: var(--muted)
 }
 
-.server-badge{
+.server-badge{/*designing what the server(web01) badge would look like on the web*/
     background: #fdf2f4;
     border: 1px solid #f5c2c7;
     padding: 0.4rem 0.9rem;
@@ -314,4 +314,24 @@ select:focus, input:focus{
 .footer a {
     color: var(--primary);
     text-decoration: none;
+}
+
+/**/
+@media (max-width: 640px){
+    .navbar-content{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .secondary-controls{
+        flex-direction: column;
+    }
+}
+
+/*clear print for the layout of facility searh results*/
+@media print{
+    .controls-card,
+    .footer{
+        display: none;
+    }
 }

@@ -164,6 +164,15 @@ def get_health_stats():
     except requests.exceptions.RequestException:
         return jsonify({"error": "Unable to load World Bank health statistics."}), 502
 
+#I want use this function to monitor my endpoints.
+@app.route("/api/health")
+def health_check():
+    #it should return the health metadata for load balancer monitoring
+    return jsonify({
+        "status":"healthy",
+        "server": os.getenv("SERVER_NAME","Local-Server"),
+        "preset_locations":len(Rwandan_cities)
+    })
 
 if __name__== "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

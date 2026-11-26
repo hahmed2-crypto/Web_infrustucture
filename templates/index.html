@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <!--Below i will write a code for header displayment of the title of the app, and the actice load-balanced server-->
     <header class="navbar">
         <div class="container nav-content">
             <h1>Rwanda Healthcare Locator</h1>
@@ -21,6 +22,7 @@
     </header>
 
     <main class="container">
+    <!--Here i will show the user to see the national health indicators section powered by the World bank Open Data API-->
         <section class="stats-section">
             <h2 class="section-title">Rwanda National Health Indicator</h2>
             <div id="health-stats-grid" class="stats-grid">
@@ -28,7 +30,7 @@
             </div>
         </section>
 
-        <section class="controls-card">
+        <section class="controls-card"> <!--in this card or section tag, i will allow the user to interact with app by searching, district selecotor, category filtering, and sorting controls-->
             <div class="filter-grid">
                 <div class="form-grid">
                     <label for="preset-city">Quick Select Area</label>
@@ -76,7 +78,7 @@
         <div id="status-bar" class="status-bar"></div>
         <div id="error-box" class="error-box hidden"></div>
 
-        <section id="facilities-grid" class="facilities-grid"></section>
+        <section id="facilities-grid" class="facilities-grid"></section> <!--this will allow the card grid to display neary hosptials2, clinics, and pharmacies-->
         
 
     </main>
